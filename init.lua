@@ -15,10 +15,8 @@ vim.api.nvim_set_option("clipboard", "unnamedplus")
 -- vim.keymap.set({ 'n', 'v' }, 'p', '"+p')
 
 require("config.lazy")
-require("mason").setup()
-require("mason-lspconfig").setup()
-
 local wk = require('which-key')
+
 vim.cmd.colorscheme "gruvbox"
 
 local function opts_descr(desc, ignore)

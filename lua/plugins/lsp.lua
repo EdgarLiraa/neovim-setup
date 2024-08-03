@@ -19,12 +19,23 @@ return {
             filetypes = { 'python' }
         })
         require('lspconfig').tsserver.setup({
-            filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
+            filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
             cmd = { "typescript-language-server", "--stdio" }
         })
         require('lspconfig').clangd.setup({
             filetypes = { 'c', 'cpp', 'cxx', 'cc' }
         })
         require('lspconfig').lua_ls.setup({})
+        require('lspconfig').gopls.setup({
+            settings = {
+                gopls = {
+                    analyses = {
+                        unusedparams = true,
+                    },
+                    staticcheck = true,
+                    gofumpt = true,
+                },
+            },
+        })
     end
 }
