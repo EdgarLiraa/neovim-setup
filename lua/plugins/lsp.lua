@@ -14,7 +14,6 @@ return {
             },
             sources = { { name = 'nvim_lsp' } }
         })
-
         require('lspconfig').pyright.setup({
             filetypes = { 'python' }
         })
@@ -25,17 +24,15 @@ return {
         require('lspconfig').clangd.setup({
             filetypes = { 'c', 'cpp', 'cxx', 'cc' }
         })
-        require('lspconfig').lua_ls.setup({})
-        require('lspconfig').gopls.setup({
-            settings = {
-                gopls = {
-                    analyses = {
-                        unusedparams = true,
-                    },
-                    staticcheck = true,
-                    gofumpt = true,
-                },
-            },
+        require('lspconfig').lua_ls.setup({
         })
+
+        require('lspconfig').gopls.setup({
+            filetypes = { "go", "gomod", "gowork", "gotmpl" },
+            cmd = { "gopls" },
+        })
+        require('lspconfig').golangci_lint_ls.setup {
+            cmd = { "golangci-lint" }
+        }
     end
 }

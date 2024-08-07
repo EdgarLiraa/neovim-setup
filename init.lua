@@ -36,6 +36,7 @@ end
 setter = vim.keymap.set
 setter({ 'n', 't' }, '<C-b>', '<cmd>ToggleTerm<CR>')
 
+setter('i', '<C-v>', '<Esc>v')
 setter({ 'n', 'v' }, '<C-k>', '3k')
 setter({ 'n', 'v' }, '<C-j>', '3j')
 setter({ 'n', 'v' }, '<C-h>', 'b')
@@ -113,6 +114,7 @@ mapper('v', '<leader>tw', 'y:Telescope live_grep default_text=<C-r>"<CR>', opts_
 wk.add { { "<leader>f", group = "LSP", icon = '+' } }
 mapper('n', '<leader>fd', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts_descr("Go to declaration"))
 mapper('n', '<leader>fg', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts_descr("Show hover info"))
+mapper('n', '<leader>fi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts_descr("Go to implementation"))
 mapper('n', '<leader>fh', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts_descr("Show signature help"))
 mapper('n', '<leader>fD', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts_descr("Go to type definition"))
 mapper('n', '<leader>fr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts_descr("List references"))
@@ -126,4 +128,5 @@ wk.add { { "<leader>b", group = "Buffer" } }
 mapper('n', '<leader>bn', ':bnext<CR>', opts_descr("Go to next buffer"))
 mapper('n', '<leader>bb', ':bprevious<CR>', opts_descr("Go to previous buffer"))
 mapper('n', '<leader>bc', ':bdelete<CR>', opts_descr("Close current buffer"))
+mapper('n', '<leader>bd', ':bufdo bd<CR>', opts_descr("Clear All Buffers"))
 mapper('n', '<leader><Tab>', ':bdelete<CR>:bnext<CR>', opts_descr("Close current buffer", true))
